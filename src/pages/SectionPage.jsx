@@ -25,6 +25,31 @@ const CONTENT_REGISTRY = {
   '11-vibe-engineering/c3-environment-setup/s1-claudemd-enterprise-patterns': lazy(() => import('../subjects/11-vibe-engineering/c3-environment-setup/s1-claudemd-enterprise-patterns.jsx')),
   '11-vibe-engineering/c4-ai-first-development/s1-ai-first-tdd': lazy(() => import('../subjects/11-vibe-engineering/c4-ai-first-development/s1-ai-first-tdd.jsx')),
   '11-vibe-engineering/c7-security-compliance-loop/s1-sast-in-agent-loop': lazy(() => import('../subjects/11-vibe-engineering/c7-security-compliance-loop/s1-sast-in-agent-loop.jsx')),
+  // Cross-cutting cloud sections in existing subjects
+  '01-rag-fundamentals/c3-vector-stores/s4-cloud-retrieval-services': lazy(() => import('../subjects/01-rag-fundamentals/c3-vector-stores/s4-cloud-retrieval-services.jsx')),
+  '05-llm-foundations/c3-model-selection/s4-cloud-model-catalogs': lazy(() => import('../subjects/05-llm-foundations/c3-model-selection/s4-cloud-model-catalogs.jsx')),
+  '07-sdks-frameworks/c6-cloud-sdks/s1-azure-ai-sdk': lazy(() => import('../subjects/07-sdks-frameworks/c6-cloud-sdks/s1-azure-ai-sdk.jsx')),
+  '07-sdks-frameworks/c6-cloud-sdks/s2-aws-bedrock-sdk': lazy(() => import('../subjects/07-sdks-frameworks/c6-cloud-sdks/s2-aws-bedrock-sdk.jsx')),
+  '07-sdks-frameworks/c6-cloud-sdks/s3-vertex-ai-sdk': lazy(() => import('../subjects/07-sdks-frameworks/c6-cloud-sdks/s3-vertex-ai-sdk.jsx')),
+  '07-sdks-frameworks/c6-cloud-sdks/s4-litellm': lazy(() => import('../subjects/07-sdks-frameworks/c6-cloud-sdks/s4-litellm.jsx')),
+  '08-enterprise-agentic/c1-production-patterns/s4-managed-agent-services': lazy(() => import('../subjects/08-enterprise-agentic/c1-production-patterns/s4-managed-agent-services.jsx')),
+  '09-security-compliance/c2-defensive-patterns/s4-cloud-guardrails': lazy(() => import('../subjects/09-security-compliance/c2-defensive-patterns/s4-cloud-guardrails.jsx')),
+  // Subject 12: Cloud AI Platforms
+  '12-cloud-ai-platforms/c1-azure-ai/s1-azure-openai-service': lazy(() => import('../subjects/12-cloud-ai-platforms/c1-azure-ai/s1-azure-openai-service.jsx')),
+  '12-cloud-ai-platforms/c1-azure-ai/s2-azure-ai-foundry': lazy(() => import('../subjects/12-cloud-ai-platforms/c1-azure-ai/s2-azure-ai-foundry.jsx')),
+  '12-cloud-ai-platforms/c1-azure-ai/s3-azure-ai-agent-service': lazy(() => import('../subjects/12-cloud-ai-platforms/c1-azure-ai/s3-azure-ai-agent-service.jsx')),
+  '12-cloud-ai-platforms/c1-azure-ai/s4-semantic-kernel': lazy(() => import('../subjects/12-cloud-ai-platforms/c1-azure-ai/s4-semantic-kernel.jsx')),
+  '12-cloud-ai-platforms/c2-aws-ai/s1-amazon-bedrock': lazy(() => import('../subjects/12-cloud-ai-platforms/c2-aws-ai/s1-amazon-bedrock.jsx')),
+  '12-cloud-ai-platforms/c2-aws-ai/s2-bedrock-agents': lazy(() => import('../subjects/12-cloud-ai-platforms/c2-aws-ai/s2-bedrock-agents.jsx')),
+  '12-cloud-ai-platforms/c2-aws-ai/s3-bedrock-guardrails': lazy(() => import('../subjects/12-cloud-ai-platforms/c2-aws-ai/s3-bedrock-guardrails.jsx')),
+  '12-cloud-ai-platforms/c2-aws-ai/s4-amazon-q-developer': lazy(() => import('../subjects/12-cloud-ai-platforms/c2-aws-ai/s4-amazon-q-developer.jsx')),
+  '12-cloud-ai-platforms/c3-gcp-ai/s1-vertex-ai-gemini': lazy(() => import('../subjects/12-cloud-ai-platforms/c3-gcp-ai/s1-vertex-ai-gemini.jsx')),
+  '12-cloud-ai-platforms/c3-gcp-ai/s2-vertex-ai-agent-builder': lazy(() => import('../subjects/12-cloud-ai-platforms/c3-gcp-ai/s2-vertex-ai-agent-builder.jsx')),
+  '12-cloud-ai-platforms/c3-gcp-ai/s3-google-adk': lazy(() => import('../subjects/12-cloud-ai-platforms/c3-gcp-ai/s3-google-adk.jsx')),
+  '12-cloud-ai-platforms/c3-gcp-ai/s4-model-garden': lazy(() => import('../subjects/12-cloud-ai-platforms/c3-gcp-ai/s4-model-garden.jsx')),
+  '12-cloud-ai-platforms/c4-cross-cloud/s1-model-selection-across-clouds': lazy(() => import('../subjects/12-cloud-ai-platforms/c4-cross-cloud/s1-model-selection-across-clouds.jsx')),
+  '12-cloud-ai-platforms/c4-cross-cloud/s2-multi-cloud-agents': lazy(() => import('../subjects/12-cloud-ai-platforms/c4-cross-cloud/s2-multi-cloud-agents.jsx')),
+  '12-cloud-ai-platforms/c4-cross-cloud/s3-cloud-native-rag': lazy(() => import('../subjects/12-cloud-ai-platforms/c4-cross-cloud/s3-cloud-native-rag.jsx')),
 }
 
 function CheckIcon() {
