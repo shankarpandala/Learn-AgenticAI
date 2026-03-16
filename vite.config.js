@@ -70,7 +70,6 @@ export default defineConfig({
             if (id.includes('recharts') || id.includes('d3')) return 'vendor-charts'
             if (id.includes('framer-motion'))                  return 'vendor-motion'
             if (id.includes('react-router'))                   return 'vendor-router'
-            if (id.includes('react-syntax-highlighter') || id.includes('highlight.js') || id.includes('prismjs')) return 'vendor-syntax'
             return 'vendor'
           }
           const subjectMatch = id.match(/subjects\/([\d]+-[^/]+)/)
