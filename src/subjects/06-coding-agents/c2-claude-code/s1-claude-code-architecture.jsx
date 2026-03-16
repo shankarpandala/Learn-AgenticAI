@@ -209,9 +209,9 @@ This is a FastAPI backend for a healthcare application.
 - Never log PHI data
 
 ## Forbidden Patterns
-- No \`eval()\` or \`exec()\`
+- No eval() or exec()
 - No hardcoded credentials
-- No \`shell=True\` in subprocess calls`}</CodeBlock>
+- No shell=True in subprocess calls`}</CodeBlock>
 
       <NoteBlock type="info">
         CLAUDE.md files are hierarchical. Place a root-level CLAUDE.md for project-wide rules and

@@ -122,7 +122,7 @@ server.tool(
   "Return current weather for a city.",
   { city: z.string().describe("City name") },
   async ({ city }) => {
-    const res = await fetch(\`https://wttr.in/\${city}?format=3\`);
+    const res = await fetch(https://wttr.in/\${city}?format=3);
     return { content: [{ type: "text", text: await res.text() }] };
   }
 );
@@ -132,13 +132,13 @@ server.resource(
   "weather://{city}/forecast",
   async (uri) => {
     const city = uri.pathname.replace("/", "").split("/")[0];
-    const res = await fetch(\`https://wttr.in/\${city}?format=j1\`);
+    const res = await fetch(https://wttr.in/\${city}?format=j1);
     const data = await res.json();
     const text = data.weather
       .slice(0, 3)
       .map(
         (d: any, i: number) =>
-          \`Day \${i + 1}: max \${d.maxtempC}°C / min \${d.mintempC}°C\`
+          Day \${i + 1}: max \${d.maxtempC}°C / min \${d.mintempC}°C
       )
       .join("\\n");
     return { contents: [{ uri: uri.href, text, mimeType: "text/plain" }] };
