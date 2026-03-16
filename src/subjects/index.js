@@ -1062,6 +1062,73 @@ const CURRICULUM = [
         ],
       },
       {
+        id: 'c3-mcp',
+        title: 'Model Context Protocol (MCP)',
+        sections: [
+          {
+            id: 's1-mcp-protocol-deep-dive',
+            title: 'MCP Protocol Deep Dive',
+            difficulty: 'intermediate',
+            readingMinutes: 18,
+            description: 'Understand MCP architecture, transports, core primitives (tools, resources, prompts), and how to integrate MCP servers with Claude.',
+          },
+          {
+            id: 's2-building-mcp-servers',
+            title: 'Building Production MCP Servers',
+            difficulty: 'intermediate',
+            readingMinutes: 15,
+            description: 'Build authenticated, tested, and Dockerised MCP servers with proper error handling and structured tool outputs.',
+          },
+        ],
+      },
+      {
+        id: 'c4-a2a-protocol',
+        title: 'Agent-to-Agent (A2A) Protocol',
+        sections: [
+          {
+            id: 's1-a2a-overview',
+            title: 'A2A Protocol Overview',
+            difficulty: 'intermediate',
+            readingMinutes: 16,
+            description: "Understand Google's Agent-to-Agent protocol: Agent Cards, tasks, streaming, and how A2A complements MCP in multi-agent systems.",
+          },
+          {
+            id: 's2-a2a-implementation',
+            title: 'Implementing A2A Agents',
+            difficulty: 'advanced',
+            readingMinutes: 18,
+            description: 'Build a complete A2A agent server and orchestrator using the Python/TypeScript SDKs, with streaming, push notifications, and multi-agent pipelines.',
+          },
+        ],
+      },
+      {
+        id: 'c5-agent-dev-kits',
+        title: 'Cloud Agent Development Kits',
+        sections: [
+          {
+            id: 's1-google-adk',
+            title: 'Google Agent Development Kit (ADK)',
+            difficulty: 'intermediate',
+            readingMinutes: 18,
+            description: 'Build multi-agent pipelines with Google ADK: LlmAgent, sub-agents as tools, built-in Google Search and code execution, session state, and Vertex AI deployment.',
+          },
+          {
+            id: 's2-azure-ai-agent-service',
+            title: 'Azure AI Agent Service',
+            difficulty: 'intermediate',
+            readingMinutes: 16,
+            description: 'Create production agents with Azure AI Agent Service: threads, file search (RAG), code interpreter, function tools, and Semantic Kernel integration.',
+          },
+          {
+            id: 's3-aws-agent-frameworks',
+            title: 'AWS Agent Frameworks (Strands & Bedrock)',
+            difficulty: 'intermediate',
+            readingMinutes: 18,
+            description: 'Build agents with Amazon Strands SDK (code-first, MCP-native) and Amazon Bedrock Agents (managed service with action groups and knowledge bases).',
+          },
+        ],
+      },
+      {
         id: 'c6-cloud-sdks',
         title: 'Cloud AI SDKs',
         sections: [
