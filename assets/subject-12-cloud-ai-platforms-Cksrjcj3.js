@@ -1,4 +1,4 @@
-import{j as e}from"./vendor-Cs56uELc.js";import{C as n,A as a,a as t,S as r,P as s,B as i,N as o}from"./content-components-Co4HZJZx.js";function l(){return e.jsxs("article",{className:"prose-content",children:[e.jsx("h2",{children:"Azure OpenAI Service"}),e.jsx("p",{children:"Azure OpenAI Service gives you access to OpenAI's models — including GPT-4o, o1, o3-mini, and text-embedding-3 — through Azure's enterprise infrastructure. This means private networking, managed identity authentication, compliance certifications (SOC 2, ISO 27001, HIPAA), regional data residency, and built-in content filtering. For production AI workloads, Azure OpenAI is the standard choice when operating within the Microsoft ecosystem."}),e.jsx(n,{term:"Deployment Types",children:e.jsxs("p",{children:["Azure OpenAI separates ",e.jsx("strong",{children:"model versions"})," from ",e.jsx("strong",{children:"deployments"}),". You create a deployment by assigning a model version to a named endpoint within your resource. Three deployment types exist: ",e.jsx("strong",{children:"Standard"})," (pay-per-token, shared compute, auto-scales), ",e.jsx("strong",{children:"Provisioned Throughput Units (PTU)"})," (reserved compute for consistent low-latency at high volume), and ",e.jsx("strong",{children:"Global Standard"}),"(Microsoft routes traffic across regions for higher throughput). PTU deployments are priced per hour regardless of utilization — they make sense only above roughly 40K TPM sustained load."]})}),e.jsx(a,{title:"Azure OpenAI Deployment Architecture",width:700,height:320,nodes:[{id:"app",label:"Application",type:"external",x:70,y:160},{id:"apim",label:`API Management
+import{j as e}from"./vendor-Cs56uELc.js";import{C as n,A as a,a as t,S as r,P as s,B as i,N as o}from"./content-components-CDXEIxVK.js";function l(){return e.jsxs("article",{className:"prose-content",children:[e.jsx("h2",{children:"Azure OpenAI Service"}),e.jsx("p",{children:"Azure OpenAI Service gives you access to OpenAI's models — including GPT-4o, o1, o3-mini, and text-embedding-3 — through Azure's enterprise infrastructure. This means private networking, managed identity authentication, compliance certifications (SOC 2, ISO 27001, HIPAA), regional data residency, and built-in content filtering. For production AI workloads, Azure OpenAI is the standard choice when operating within the Microsoft ecosystem."}),e.jsx(n,{term:"Deployment Types",children:e.jsxs("p",{children:["Azure OpenAI separates ",e.jsx("strong",{children:"model versions"})," from ",e.jsx("strong",{children:"deployments"}),". You create a deployment by assigning a model version to a named endpoint within your resource. Three deployment types exist: ",e.jsx("strong",{children:"Standard"})," (pay-per-token, shared compute, auto-scales), ",e.jsx("strong",{children:"Provisioned Throughput Units (PTU)"})," (reserved compute for consistent low-latency at high volume), and ",e.jsx("strong",{children:"Global Standard"}),"(Microsoft routes traffic across regions for higher throughput). PTU deployments are priced per hour regardless of utilization — they make sense only above roughly 40K TPM sustained load."]})}),e.jsx(a,{title:"Azure OpenAI Deployment Architecture",width:700,height:320,nodes:[{id:"app",label:"Application",type:"external",x:70,y:160},{id:"apim",label:`API Management
 (rate limit, auth)`,type:"tool",x:220,y:160},{id:"aoai",label:`Azure OpenAI
 Resource`,type:"agent",x:390,y:160},{id:"std",label:`Standard
 Deployment`,type:"llm",x:560,y:80},{id:"ptu",label:`PTU
@@ -297,8 +297,8 @@ run = pf.run(
     flow="./my_rag_flow",           # directory with flow.dag.yaml
     data="./eval_dataset.jsonl",    # {"question": "...", "ground_truth": "..."}
     column_mapping={
-        "question": "${data.question}",
-        "context": "${data.context}",
+        "question": "\${data.question}",
+        "context": "\${data.context}",
     },
     stream=True,
 )
@@ -315,7 +315,7 @@ azure_run = azure_pf.run(
     flow="./my_rag_flow",
     data="./eval_dataset.jsonl",
     runtime="automatic",            # serverless compute
-    column_mapping={"question": "${data.question}"},
+    column_mapping={"question": "\${data.question}"},
     display_name="rag-eval-2024-12",
     tags={"experiment": "chunking-strategy-v2"},
 )
@@ -357,9 +357,9 @@ eval_run = azure_pf.run(
     data="./eval_dataset.jsonl",
     run=azure_run,  # evaluate outputs of a previous run
     column_mapping={
-        "question": "${data.question}",
-        "context": "${data.context}",
-        "answer": "${run.outputs.answer}",
+        "question": "\${data.question}",
+        "context": "\${data.context}",
+        "answer": "\${run.outputs.answer}",
     },
 )
 print(azure_pf.get_metrics(eval_run))`}}),e.jsx("h2",{children:"AI Evaluations: Quality and Safety"}),e.jsx(n,{term:"Evaluation Metric Definitions",children:e.jsxs("p",{children:[e.jsx("strong",{children:"Groundedness"})," (1–5): Is the response factually supported by the provided context? Critical for RAG systems to detect hallucination.",e.jsx("strong",{children:"Relevance"})," (1–5): Does the response address the user's question?",e.jsx("strong",{children:"Coherence"})," (1–5): Is the response logically consistent and well-structured?",e.jsx("strong",{children:"Fluency"})," (1–5): Is the language natural and grammatically correct?",e.jsx("strong",{children:"Similarity"})," (1–5): Semantic similarity to a ground-truth reference.",e.jsx("strong",{children:"F1 / BLEU / ROUGE"}),": Token-overlap metrics, useful for extraction tasks. Safety evaluations cover violence, hate speech, sexual content, self-harm, and jailbreak detection — each scored with severity levels (very_low through high)."]})}),e.jsx(t,{language:"python",filename:"safety_evaluation.py",children:`# Safety evaluations require Azure AI Project connection
@@ -398,13 +398,13 @@ results = evaluate(
     },
     evaluator_config={
         "groundedness": {"column_mapping": {
-            "question": "${data.question}",
-            "context": "${data.context}",
-            "answer": "${data.answer}",
+            "question": "\${data.question}",
+            "context": "\${data.context}",
+            "answer": "\${data.answer}",
         }},
         "violence": {"column_mapping": {
-            "question": "${data.question}",
-            "answer": "${data.answer}",
+            "question": "\${data.question}",
+            "answer": "\${data.answer}",
         }},
     },
     azure_ai_project=azure_ai_project,  # Upload results to AI Foundry portal
