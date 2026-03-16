@@ -22,13 +22,15 @@ function CheckIcon() {
 }
 
 const TAB_META = {
-  python: { label: 'Python', lang: 'python' },
+  python:     { label: 'Python',     lang: 'python' },
   typescript: { label: 'TypeScript', lang: 'typescript' },
   javascript: { label: 'JavaScript', lang: 'javascript' },
-  yaml: { label: 'YAML', lang: 'yaml' },
-  json: { label: 'JSON', lang: 'json' },
-  bash: { label: 'Bash', lang: 'bash' },
+  yaml:       { label: 'YAML',       lang: 'yaml' },
+  json:       { label: 'JSON',       lang: 'json' },
+  bash:       { label: 'Bash',       lang: 'bash' },
   dockerfile: { label: 'Dockerfile', lang: 'dockerfile' },
+  sql:        { label: 'SQL',        lang: 'sql' },
+  text:       { label: 'Text',       lang: 'text' },
 }
 
 /**
