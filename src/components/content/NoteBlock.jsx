@@ -1,55 +1,46 @@
 const VARIANTS = {
   note: {
-    border: 'border-blue-200 dark:border-blue-800/50',
-    bg: 'bg-blue-50/60 dark:bg-blue-950/30',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" />
-        <line x1="12" y1="8" x2="12" y2="12" />
-        <line x1="12" y1="16" x2="12.01" y2="16" />
-      </svg>
-    ),
+    border: 'border-blue-400/50 dark:border-blue-500/40',
+    bg: 'bg-blue-50/50 dark:bg-blue-950/20',
+    headerBg: 'bg-blue-100/60 dark:bg-blue-900/30',
+    headerBorder: 'border-blue-400/30 dark:border-blue-500/30',
+    badge: 'bg-blue-500 dark:bg-blue-600',
     iconColor: 'text-blue-500 dark:text-blue-400',
-    labelColor: 'text-blue-700 dark:text-blue-300',
+    labelColor: 'text-blue-600 dark:text-blue-400',
+    letter: 'N',
     label: 'Note',
   },
   tip: {
-    border: 'border-emerald-200 dark:border-emerald-800/50',
-    bg: 'bg-emerald-50/60 dark:bg-emerald-950/30',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z" />
-        <line x1="9" y1="21" x2="15" y2="21" />
-        <line x1="10" y1="17" x2="14" y2="17" />
-      </svg>
-    ),
+    border: 'border-emerald-400/50 dark:border-emerald-500/40',
+    bg: 'bg-emerald-50/50 dark:bg-emerald-950/20',
+    headerBg: 'bg-emerald-100/60 dark:bg-emerald-900/30',
+    headerBorder: 'border-emerald-400/30 dark:border-emerald-500/30',
+    badge: 'bg-emerald-500 dark:bg-emerald-600',
     iconColor: 'text-emerald-500 dark:text-emerald-400',
-    labelColor: 'text-emerald-700 dark:text-emerald-300',
+    labelColor: 'text-emerald-600 dark:text-emerald-400',
+    letter: 'T',
     label: 'Tip',
   },
   intuition: {
-    border: 'border-violet-200 dark:border-violet-800/50',
-    bg: 'bg-violet-50/60 dark:bg-violet-950/30',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-      </svg>
-    ),
+    border: 'border-violet-400/50 dark:border-violet-500/40',
+    bg: 'bg-violet-50/50 dark:bg-violet-950/20',
+    headerBg: 'bg-violet-100/60 dark:bg-violet-900/30',
+    headerBorder: 'border-violet-400/30 dark:border-violet-500/30',
+    badge: 'bg-violet-500 dark:bg-violet-600',
     iconColor: 'text-violet-500 dark:text-violet-400',
-    labelColor: 'text-violet-700 dark:text-violet-300',
+    labelColor: 'text-violet-600 dark:text-violet-400',
+    letter: 'I',
     label: 'Intuition',
   },
   historical: {
-    border: 'border-amber-200 dark:border-amber-800/50',
-    bg: 'bg-amber-50/60 dark:bg-amber-950/30',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
+    border: 'border-amber-400/50 dark:border-amber-500/40',
+    bg: 'bg-amber-50/50 dark:bg-amber-950/20',
+    headerBg: 'bg-amber-100/60 dark:bg-amber-900/30',
+    headerBorder: 'border-amber-400/30 dark:border-amber-500/30',
+    badge: 'bg-amber-500 dark:bg-amber-600',
     iconColor: 'text-amber-500 dark:text-amber-400',
-    labelColor: 'text-amber-700 dark:text-amber-300',
+    labelColor: 'text-amber-600 dark:text-amber-400',
+    letter: 'H',
     label: 'Context',
   },
 }
@@ -60,14 +51,20 @@ export default function NoteBlock({ type = 'note', title, children }) {
 
   return (
     <aside
-      className={`my-6 rounded-xl border ${v.border} ${v.bg} px-5 py-4`}
+      className={`my-6 overflow-hidden rounded-xl border-2 shadow-sm ${v.border} ${v.bg}`}
       role="note"
     >
-      <div className={`mb-2 flex items-center gap-2 text-sm font-semibold ${v.iconColor}`}>
-        {v.icon}
-        <span className={v.labelColor}>{displayTitle}</span>
+      {/* Header strip */}
+      <div className={`flex items-center gap-3 border-b px-5 py-3 ${v.headerBg} ${v.headerBorder}`}>
+        <div className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${v.badge}`}>
+          {v.letter}
+        </div>
+        <span className={`text-xs font-semibold uppercase tracking-wider ${v.labelColor}`}>
+          {displayTitle}
+        </span>
       </div>
-      <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed [&>p]:mb-2 [&>p:last-child]:mb-0">
+      {/* Body */}
+      <div className="px-5 py-4 text-[15px] leading-relaxed text-gray-700 dark:text-gray-300 [&>p]:mb-2 [&>p:last-child]:mb-0 [&_strong]:font-semibold [&_code]:rounded [&_code]:bg-gray-100 [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm dark:[&_code]:bg-gray-800">
         {children}
       </div>
     </aside>

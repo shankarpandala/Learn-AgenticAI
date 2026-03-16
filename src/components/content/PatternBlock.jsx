@@ -1,42 +1,42 @@
 /**
  * PatternBlock — AI design pattern with context
- * Analogous to TheoremBlock in math4ai
+ * Matches math4ai TheoremBlock visual style
  */
 export default function PatternBlock({ name, category, children, whenToUse }) {
   return (
-    <div className="my-6 rounded-xl border border-violet-200 bg-gradient-to-br from-violet-50/80 to-purple-50/40 px-5 py-4 dark:border-violet-800/50 dark:from-violet-950/30 dark:to-purple-950/20">
-      <div className="mb-2 flex items-start justify-between gap-3">
-        <div className="flex items-center gap-2">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-violet-500 dark:text-violet-400 shrink-0 mt-0.5" aria-hidden="true">
-            <rect x="3" y="3" width="7" height="7" />
-            <rect x="14" y="3" width="7" height="7" />
-            <rect x="14" y="14" width="7" height="7" />
-            <rect x="3" y="14" width="7" height="7" />
-          </svg>
-          <span className="text-xs font-semibold uppercase tracking-widest text-violet-600 dark:text-violet-400">
-            Pattern
-          </span>
+    <div className="my-6 overflow-hidden rounded-xl border-2 border-violet-400/50 bg-violet-50/50 shadow-sm dark:border-violet-500/40 dark:bg-violet-950/20">
+      {/* Header strip */}
+      <div className="flex items-center gap-3 border-b border-violet-400/30 bg-violet-100/60 px-5 py-3 dark:border-violet-500/30 dark:bg-violet-900/30">
+        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-violet-500 text-xs font-bold text-white dark:bg-violet-600">
+          P
         </div>
+        <span className="text-xs font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">
+          Pattern
+        </span>
+        {name && (
+          <>
+            <span className="text-violet-400 dark:text-violet-600">·</span>
+            <span className="text-sm font-semibold text-violet-800 dark:text-violet-200 truncate">
+              {name}
+            </span>
+          </>
+        )}
         {category && (
-          <span className="rounded-full bg-violet-100 px-2.5 py-0.5 text-xs font-medium text-violet-700 dark:bg-violet-900/40 dark:text-violet-300">
+          <span className="ml-auto shrink-0 rounded-full bg-violet-100 px-2.5 py-0.5 text-xs font-medium text-violet-700 dark:bg-violet-900/50 dark:text-violet-300">
             {category}
           </span>
         )}
       </div>
-      {name && (
-        <h3 className="mb-2 text-base font-bold text-gray-900 dark:text-gray-100">
-          {name}
-        </h3>
-      )}
-      <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed [&>p]:mb-2 [&>p:last-child]:mb-0">
+      {/* Body */}
+      <div className="px-5 py-4 text-[15px] leading-relaxed text-gray-700 dark:text-gray-300 [&>p]:mb-2 [&>p:last-child]:mb-0 [&_code]:rounded [&_code]:bg-violet-100/60 [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm [&_code]:text-violet-700 dark:[&_code]:bg-violet-900/30 dark:[&_code]:text-violet-300">
         {children}
       </div>
       {whenToUse && (
-        <div className="mt-3 border-t border-violet-200/60 pt-3 dark:border-violet-800/40">
-          <p className="text-xs font-semibold uppercase tracking-wide text-violet-600 dark:text-violet-400 mb-1">
-            When to use
-          </p>
-          <p className="text-sm text-gray-600 dark:text-gray-400">{whenToUse}</p>
+        <div className="border-t border-violet-400/20 bg-violet-50/40 px-5 py-3 dark:border-violet-500/20 dark:bg-violet-900/15">
+          <span className="mr-2 text-xs font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">
+            When to use:
+          </span>
+          <span className="text-sm text-gray-600 dark:text-gray-400">{whenToUse}</span>
         </div>
       )}
     </div>

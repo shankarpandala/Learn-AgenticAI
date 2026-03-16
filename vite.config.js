@@ -72,6 +72,10 @@ export default defineConfig({
             if (id.includes('react-router'))                   return 'vendor-router'
             return 'vendor'
           }
+          // Shared content/viz components → own chunk to break circular subject deps
+          if (id.includes('/components/content/') || id.includes('/components/viz/')) {
+            return 'content-components'
+          }
           const subjectMatch = id.match(/subjects\/([\d]+-[^/]+)/)
           if (subjectMatch) return `subject-${subjectMatch[1]}`
         }
