@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { lazy, Suspense, useState } from 'react'
 import Navbar from './components/layout/Navbar.jsx'
 import Sidebar from './components/layout/Sidebar.jsx'
@@ -11,6 +11,15 @@ const ChapterPage = lazy(() => import('./pages/ChapterPage.jsx'))
 const SectionPage = lazy(() => import('./pages/SectionPage.jsx'))
 const ProgressPage = lazy(() => import('./pages/ProgressPage.jsx'))
 const SearchPage = lazy(() => import('./pages/SearchPage.jsx'))
+
+function NormalizeCase() {
+  const { pathname, search, hash } = useLocation()
+  const lower = pathname.toLowerCase()
+  if (pathname !== lower) {
+    return <Navigate to={lower + search + hash} replace />
+  }
+  return null
+}
 
 function LoadingFallback() {
   return (
@@ -48,6 +57,7 @@ export default function App() {
       <AppShell>
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
+            <Route path="*" element={<NormalizeCase />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/subjects/:subjectId" element={<SubjectPage />} />
             <Route path="/subjects/:subjectId/:chapterId" element={<ChapterPage />} />
