@@ -131,7 +131,7 @@ if (text.type === 'text') {
   console.log(text.text);
 }
 
-console.log(\`Tokens used: \${message.usage.input_tokens} in, \${message.usage.output_tokens} out\`);`,
+console.log(Tokens used: \${message.usage.input_tokens} in, \${message.usage.output_tokens} out);`,
         }}
       />
 
@@ -176,17 +176,17 @@ print(message.content[0].text)`,
           typescript: `const message = await client.messages.create({
   model: 'claude-opus-4-6',
   max_tokens: 2048,
-  system: \`You are an expert Python code reviewer specializing in security.
+  system: You are an expert Python code reviewer specializing in security.
 
 When reviewing code:
 1. Identify security vulnerabilities (OWASP Top 10)
 2. Check for input validation issues
 3. Look for SQL injection, XSS, and authentication flaws
-4. Suggest specific fixes with code examples\`,
+4. Suggest specific fixes with code examples,
   messages: [
     {
       role: 'user',
-      content: \`Review this code:\\n\\n\${codeToReview}\`,
+      content: Review this code:\\n\\n\${codeToReview},
     },
   ],
 });`,
@@ -287,7 +287,7 @@ for await (const chunk of stream) {
 }
 
 const finalMessage = await stream.getFinalMessage();
-console.log(\`\\nTotal tokens: \${finalMessage.usage.input_tokens + finalMessage.usage.output_tokens}\`);`,
+console.log(\\nTotal tokens: \${finalMessage.usage.input_tokens + finalMessage.usage.output_tokens});`,
         }}
       />
 

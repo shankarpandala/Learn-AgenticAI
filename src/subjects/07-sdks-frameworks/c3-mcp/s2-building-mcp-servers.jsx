@@ -196,7 +196,7 @@ server.tool(
       };
     } catch (err) {
       return {
-        content: [{ type: "text", text: \`Database error: \${err}\` }],
+        content: [{ type: "text", text: Database error: \${err} }],
         isError: true,
       };
     }

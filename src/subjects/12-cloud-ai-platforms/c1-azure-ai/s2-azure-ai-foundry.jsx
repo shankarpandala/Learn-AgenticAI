@@ -164,8 +164,8 @@ run = pf.run(
     flow="./my_rag_flow",           # directory with flow.dag.yaml
     data="./eval_dataset.jsonl",    # {"question": "...", "ground_truth": "..."}
     column_mapping={
-        "question": "${data.question}",
-        "context": "${data.context}",
+        "question": "\$\{data.question\}",
+        "context": "\$\{data.context\}",
     },
     stream=True,
 )
@@ -182,7 +182,7 @@ azure_run = azure_pf.run(
     flow="./my_rag_flow",
     data="./eval_dataset.jsonl",
     runtime="automatic",            # serverless compute
-    column_mapping={"question": "${data.question}"},
+    column_mapping={"question": "\$\{data.question\}"},
     display_name="rag-eval-2024-12",
     tags={"experiment": "chunking-strategy-v2"},
 )
@@ -224,9 +224,9 @@ eval_run = azure_pf.run(
     data="./eval_dataset.jsonl",
     run=azure_run,  # evaluate outputs of a previous run
     column_mapping={
-        "question": "${data.question}",
-        "context": "${data.context}",
-        "answer": "${run.outputs.answer}",
+        "question": "\$\{data.question\}",
+        "context": "\$\{data.context\}",
+        "answer": "\$\{run.outputs.answer\}",
     },
 )
 print(azure_pf.get_metrics(eval_run))`,
@@ -286,13 +286,13 @@ results = evaluate(
     },
     evaluator_config={
         "groundedness": {"column_mapping": {
-            "question": "${data.question}",
-            "context": "${data.context}",
-            "answer": "${data.answer}",
+            "question": "\$\{data.question\}",
+            "context": "\$\{data.context\}",
+            "answer": "\$\{data.answer\}",
         }},
         "violence": {"column_mapping": {
-            "question": "${data.question}",
-            "answer": "${data.answer}",
+            "question": "\$\{data.question\}",
+            "answer": "\$\{data.answer\}",
         }},
     },
     azure_ai_project=azure_ai_project,  # Upload results to AI Foundry portal

@@ -176,10 +176,10 @@ function executeTool(name: string, input: Record<string, string>): string {
     try {
       return fs.readFileSync(input.path, "utf-8");
     } catch {
-      return \`Error: file not found: \${input.path}\`;
+      return Error: file not found: \${input.path};
     }
   }
-  return \`Unknown tool: \${name}\`;
+  return Unknown tool: \${name};
 }
 
 async function runAgent(task: string): Promise<string> {

@@ -88,13 +88,13 @@ Run the following security scanners on changed files and fix all critical/high f
 
 ## Steps
 1. Run Semgrep with org ruleset:
-   \`semgrep --config=p/owasp-top-ten --config=.semgrep/custom-rules.yml --json src/\`
+   semgrep --config=p/owasp-top-ten --config=.semgrep/custom-rules.yml --json src/
 
 2. Run Bandit for Python:
-   \`bandit -r src/ -f json -ll\`
+   bandit -r src/ -f json -ll
 
 3. Run Snyk for dependencies:
-   \`snyk test --json\`
+   snyk test --json
 
 4. For each CRITICAL or HIGH finding:
    - Read the file and line number
